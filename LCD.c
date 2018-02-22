@@ -7,6 +7,7 @@
 #include "LCD.h"
 #include <avr/io.h>
 #include <util/delay.h>
+#include <stdio.h>
 
 #define set_bit(reg,pin) reg|=(1<<pin)
 #define clear_bit(reg,pin) reg&=~(1<<pin)
