@@ -33,7 +33,6 @@ void LCD_init()
 	 // Make EN Output
 	set_bit(DDRC,PC7);
 
-
 	LCD_Write_CMD(0x02); // Return Home
 	LCD_Write_CMD(0x28); // 4 bit mode 5*8 dispaly  2 line
 	_delay_ms(1);
@@ -51,7 +50,7 @@ void LCD_Write_CMD(unsigned char CMD)
 	PORTB |=((CMD<<4)&0xF0);
 	LCD_EN();
 	if (CMD==0x01)	curcor_counter = 0;
-	_delay_ms(1);
+	_delay_ms(2);
 }
 void Toggle_Curcor_Pos()
 {
