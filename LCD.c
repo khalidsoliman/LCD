@@ -88,6 +88,8 @@ void LCD_Write_String(char *string)
 		LCD_Write_Data(*string);
 		string ++;
 	}
+	curcor_counter=0;
+	toggle_counter=0;
 }
 void LCD_GoTo(unsigned char posX,unsigned char posY)
 {
