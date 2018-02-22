@@ -22,13 +22,15 @@ void LCD_EN()
 }
 void LCD_init()
 {
-	DDRB=0xff; // Make PORT output
-	PORTB=0;   // Init PORT
+	// Make PORT output
+	DDRB|=0xf0;
+	// Init PORT
+	PORTB&=~(0xf0);
 	////////////////////////////////////////
-	DDRC|=(1<<6);   // Make RS Output
-	PORTC&=~(1<<6); // Init RS " Command mode "
-	DDRC|=(1<<7);   // Make EN Output
-	PORTC&=~(1<<7); // Init EN
+	// Make RS Output
+	set_bit(DDRC,PC6);
+	 // Make EN Output
+	set_bit(DDRC,PC7);
 
 	LCD_Write_CMD(0x01); // Clear All Display Data
 	LCD_Write_CMD(0x28); // 4 bit mode 5*8 dispaly  2 line
